@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de GAP IFRS S1</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <h2>Synecta</h2>
+            </div>
+            <ul class="menu">
+                <li class="disabled"><i class="fas fa-leaf"></i> Gestão do ESG</li>
+                <li class="active"><i class="fas fa-chart-bar"></i> Análise de GAP</li>
+                <li><i class="fas fa-tachometer-alt"></i> Dashboard</li>
+                <li><i class="fas fa-cog"></i> Configuração</li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <h1>Análise de GAP IFRS S1</h1>
+            </div>
+            <div class="content">
+                <div class="form-container">
+                    <h2>Enviar Relatório para Análise</h2>
+                    <form id="gapForm" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="fileUpload">Selecione o Relatório (PDF)</label>
+                            <div class="file-upload">
+                                <input type="file" id="fileUpload" name="data" accept=".pdf" required>
+                                <div class="file-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span id="fileName">Nenhum arquivo selecionado</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nome">Nome da Empresa</label>
+                            <input type="text" id="nome" name="nome" placeholder="Ex: Banco Santander S.A." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="unidade">Unidade</label>
+                            <select id="unidade" name="unidade" required>
+                                <option value="">Selecione uma opção</option>
+                                <option value="Matriz">Matriz</option>
+                                <option value="Filial">Filial</option>
+                                <option value="Subsidiária">Subsidiária</option>
+                                <option value="Holding">Holding</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="categoria">Categoria</label>
+                            <input type="text" id="categoria" name="categoria" placeholder="Ex: Finanças" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="setor">Setor</label>
+                            <input type="text" id="setor" name="setor" placeholder="Ex: Banco" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Ex: usuario@empresa.com" required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" id="submitBtn" class="btn-primary">
+                                <i class="fas fa-chart-line"></i> GAP Análise
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div id="loading" class="loading-container hidden">
+                    <div class="spinner"></div>
+                    <p>Enviando dados para análise...</p>
+                </div>
+                <div id="result" class="result-container hidden">
+                    <div id="success" class="result-message success hidden">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Análise Iniciada com Sucesso!</h3>
+                        <p>Seu relatório foi enviado para análise. Os resultados serão disponibilizados em breve.</p>
+                    </div>
+                    <div id="error" class="result-message error hidden">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <h3>Erro ao Enviar Relatório</h3>
+                        <p id="errorMessage">Ocorreu um erro durante o envio. Por favor, tente novamente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
